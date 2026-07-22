@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { statSync } from "node:fs";
 import { join } from "node:path";
 
@@ -49,12 +50,23 @@ export default function Home() {
           </a>{" "}
           no later than <span className="font-semibold">July 23, 2026 at 11:59 PM</span>.
           This deadline is final. No exceptions will be granted, and no
-          modifications will be accepted after the cutoff time.
+          modifications will be accepted after the cutoff time. Please verify
+          that each delegate&apos;s name is spelled correctly, as the first and last names must match
+          exactly as on the identification the delegate presents at the time of voting.
         </p>
       </div>
 
       <header className="w-full border-b border-zinc-200 bg-white px-6 py-6 dark:border-zinc-800 dark:bg-black">
-        <div className="mx-auto flex max-w-5xl flex-col gap-1">
+        <div className="mx-auto flex max-w-5xl items-center gap-4">
+          <Image
+            src="/fokana-logo.png"
+            alt="FOKANA logo"
+            width={180}
+            height={180}
+            priority
+            className="shrink-0"
+          />
+          <div className="flex flex-col gap-1">
           <h1 className="text-2xl font-semibold tracking-tight text-black dark:text-zinc-50">
             FOKANA 2026 Election
           </h1>
@@ -66,6 +78,7 @@ export default function Home() {
               Last updated: {lastUpdated}
             </p>
           )}
+          </div>
         </div>
       </header>
 
