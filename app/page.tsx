@@ -82,11 +82,15 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex w-full flex-1 flex-col px-3 py-4 sm:px-4">
+      <main className="w-full flex-1 px-3 py-4">
         <iframe
           src={PDF_VIEW}
           title="Eligible voter delegate list"
-          className="min-h-[75vh] w-full flex-1 rounded-lg border border-zinc-200 bg-white shadow-sm dark:border-zinc-800"
+          // Inline width/height guarantee full-width sizing in every
+          // environment, independent of the flex chain or Tailwind's build-time
+          // class purging (which can differ between dev and production).
+          style={{ width: "100%", height: "85vh", display: "block" }}
+          className="rounded-lg border border-zinc-200 bg-white shadow-sm dark:border-zinc-800"
         />
       </main>
     </div>
